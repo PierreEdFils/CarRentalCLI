@@ -7,22 +7,28 @@ public class UserInput {
      private static Scanner scanner = new Scanner(System.in);
 
      public static String readString(String question) {
-         System.out.print(question+"\nInput :");
-          return  scanner.nextLine();
+         while (true){
+             System.out.print(question+"\nInput :");
+             String inputString = scanner.nextLine();
+
+             if (! inputString.trim().equals("")){
+                 return inputString.trim();
+             }
+             System.out.println("You must enter something ");
+         }
+
      }
 
      public static int readInt (String question){
          while (true){
-             System.out.print(question+"\nNumber :");
-
              try{
-
-                 int temp = scanner.nextInt(); //exception risks
-                 scanner.nextLine();
-                 return temp;
+                 System.out.println(question+"\nNumber : " );
+                 return scanner.nextInt(); //exception risk ;
 
              } catch(InputMismatchException e){
+                 scanner.nextLine();
                  System.out.println("You must enter an integer, try again");
+                 return readInt(question);
 
              }
 

@@ -48,19 +48,19 @@ public class RentalService {
         2) Chevy Cruze
         3) Toyota Corolla
          */
-//            System.out.println(" All Cars :");
-//
-//            for (int i = 0; i < carStorage.length; i++) {
+            System.out.println(" All Cars :");
+
+            for (int i = 0; i < carStorage.length; i++) {
 ////            System.out.println(carStorage[i].getMake() + " "+ carStorage[i].getModel());
-//                String carStatus;
-//                if (!carStorage[i].isRented()) {
-//                    carStatus = " Available";
-//                } else {
-//
-//                    carStatus = " Unavailable";
-//                }
-//                System.out.println("(" + (i + 1) + ") " + carStorage[i].getName() + "(" + carStatus + ")");
-//            }
+                String carStatus;
+                if (!carStorage[i].isRented()) {
+                    carStatus = " Available";
+                } else {
+
+                    carStatus = " Unavailable";
+                }
+                System.out.println("(" + (i + 1) + ") " + carStorage[i].getName() + "(" + carStatus + ")");
+            }
 
     }
 }
