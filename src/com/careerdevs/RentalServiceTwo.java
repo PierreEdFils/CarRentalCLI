@@ -24,17 +24,12 @@ public class RentalServiceTwo {
         availableCars.add(car2);
 
         mainMenu();
-//        "1) Rent"
-
-        //  "2) Return "
-
-
-
 
 
 
     }
     public static void mainMenu() {
+        System.out.println("MAIN MENU");
         System.out.println(" Welcome to Java Car Rentals  :");
 
         System.out.println("Would you like to...");
@@ -59,6 +54,8 @@ public class RentalServiceTwo {
     public static void rentalMenu() {
 
 
+
+            //display  Available Cars
             System.out.println(" Available Cars :");
             for (int i = 0; i < availableCars.size() ; i++) {
                 System.out.println("(" + (i + 1) + ") " + availableCars.get(i).getName());
@@ -86,6 +83,7 @@ public class RentalServiceTwo {
 //
 //
 //    }
+        // read user Inout
            int  userSelection = UI.readInt("Enter a number to select the car you'd like to rent",1,3);
 
 //        rentedCars.add(availableCars.get(userSelection-1));
@@ -94,8 +92,10 @@ public class RentalServiceTwo {
 //            System.out.println("Car selection invalid, please try again ");
 
             if (userSelection <= availableCars.size()) {
-
+        //Inform the user of a successful rent
                 System.out.println(" Thank you! You are now renting  " +availableCars.get(userSelection -1).getName());
+
+                //Updating the car Rental status
                 rentedCars.add( availableCars.get(userSelection -1));
                 availableCars.remove(userSelection-1);
 
@@ -110,14 +110,25 @@ public class RentalServiceTwo {
 
     }
     public static void returnMenu() {
+        if (rentedCars.size()==0){
+            System.out.println("\n\nSorry, there are no available cars to rent.returning to the main menu…\n\n");
+            mainMenu();
+            return;
+
+        }
+
+        //display  Rented Cars
+        System.out.println(" Rented Cars :");
         for (int i = 0; i < rentedCars.size() ; i++) {
 
             System.out.println("(" + (i + 1) + ") "+ rentedCars.get(i).getName());
         }
+
+        // read user Inout
        int  userSelection = UI.readInt("Enter a number to select the car you'd like to return",1,3);
 
         if (userSelection <= rentedCars.size()) {
-
+            //Inform the user of a successful rent
             System.out.println(" Thank you, you have returned   " +rentedCars.get(userSelection -1).getName());
             availableCars.add( rentedCars.get(userSelection -1));
             rentedCars.remove(userSelection-1);
